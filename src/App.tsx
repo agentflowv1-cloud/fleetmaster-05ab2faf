@@ -1,19 +1,23 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <div className='max-w-7xl mx-auto p-4 md:p-6 lg:p-8 flex flex-col min-h-screen'>
+        <Navbar />
+        <Routes>
+          <Route path '/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
