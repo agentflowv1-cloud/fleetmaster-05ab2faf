@@ -1,25 +1,24 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import CarCard from './components/CarCard';
+import './App.css';
 
-function App() {
+const cars = [
+  { id: 1, brand: 'Toyota', model: 'Corolla', year: 2022, color: 'Blue' },
+  { id: 2, brand: 'Honda', model: 'Civic', year: 2021, color: 'Red' },
+  { id: 3, brand: 'Ford', model: 'Mustang', year: 2020, color: 'Black' }
+];
+
+const App = () => {
   return (
-    <BrowserRouter>
-      <div className='max-w-7xl mx-auto p-4 md:p-6 lg:p-8 flex flex-col min-h-screen'>
-        <Navbar />
-        <Routes>
-          <Route path '/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-        </Routes>
-        <Footer />
+    <div className="container mx-auto p-4 pt-6 mt-10">
+      <h1 className="text-3xl font-bold mb-4">Car Models</h1>
+      <div className="flex flex-wrap justify-center">
+        {cars.map((car) => (
+          <CarCard key={car.id} car={car} />
+        ))}
       </div>
-    </BrowserRouter>
+    </div>
   );
-}
+};
 
 export default App;
